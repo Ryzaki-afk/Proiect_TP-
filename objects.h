@@ -24,16 +24,17 @@ extern int SCOR, MAX_SCOR;
 extern struct PacManStr_definition{
     int line,col;
     int alive;
+    int super;
 } PacMan;
 
 enum symbols{
-    SPATIU,
-    PERETE,
-    PUNCT,
-    PAC_MAN_Symbol,
-    FANTOMA_Symbol,
-    STRUGURE,
-    DEAD
+    SPATIU, //1
+    PERETE, //2
+    PUNCT,  //3
+    PAC_MAN_Symbol, //4
+    FANTOMA_Symbol, //5
+    STRUGURE, //6
+    DEAD //7
 };
 
 #endif

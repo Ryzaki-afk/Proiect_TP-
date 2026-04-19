@@ -64,7 +64,10 @@ void place_symbol(int n)
             printf( MAG "# ");
             break;
         case PAC_MAN_Symbol:
+            if(PacMan.super==0)
             printf( YEL "P ");
+            else
+            printf(BLU "P ");
             break;
         case FANTOMA_Symbol:
             printf(RED "F ");
@@ -74,6 +77,9 @@ void place_symbol(int n)
             break;
         case DEAD:
             printf(RED "X ");
+            break;
+        case STRUGURE:
+            printf(BLU "S ");
             break;
     }
 
