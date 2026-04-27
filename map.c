@@ -46,6 +46,16 @@ void generare_harta(FILE *f)
     
     int row,col;
     int ver;
+    
+    ver=fscanf(f,"%d %d",&row,&col);
+    if(ver!=2){
+        printf("fisier mapa incorect\n");
+        exit(1);
+    }
+    
+    
+    
+    
     while((ver=fscanf(f,"%d %d",&row,&col)==2))
     {
         //cclearprintf("%d %d\n",row,col);

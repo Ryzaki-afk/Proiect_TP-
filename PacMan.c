@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "objects.h"
 #include "map.h"
 #include "PM.h"
+#include "strugure.h"
+
 
 #define SPEED 5
 
@@ -22,6 +25,7 @@ struct PacManStr_definition PacMan;
 
 int main(int argc, char **argv)
 {
+    srand(time(NULL));
     if(argc>2)
     {
         printf("prea multe arguments");
@@ -53,14 +57,12 @@ int main(int argc, char **argv)
 
     //pus cu fotza
     harta[11][14]=STRUGURE;
-    //
-
     harta[10][10]=FANTOMA_Symbol;
     
+
+
     //update:
     int power=0;
-
-
     printf("Jocul a inceput; il poti muta pe Pac Man folosind w a s d\n");
     while(PacMan.alive)
     {

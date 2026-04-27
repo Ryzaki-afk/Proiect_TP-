@@ -6,7 +6,7 @@ TARGET = p
 
 
 $(TARGET): $(FILES) $(HEADERS)
-	$(CC) $(FLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 all: $(TARGET)
 
