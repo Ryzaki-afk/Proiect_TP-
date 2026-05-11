@@ -10,6 +10,7 @@ struct loc{
 };
 
 struct loc search(int x,int y);
+int place_strugure (struct loc verific);
 
 
 

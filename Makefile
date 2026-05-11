@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall
-FILES = PacMan.c map.c PM.c
+FILES = PacMan.c map.c PM.c strugure.c
 HEADERS = 
 TARGET = p
 

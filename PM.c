@@ -33,11 +33,10 @@ int PACMAN_CHECK(int power)
     if (harta[PacMan.line][PacMan.col] == STRUGURE)
     {
         PacMan.super=60;
-        harta[PacMan.line][PacMan.col] = SPATIU;
     }
 
 
-    if (harta[PacMan.line][PacMan.col]==PUNCT)
+    if (harta[PacMan.line][PacMan.col]==PUNCT || harta[PacMan.line][PacMan.col]==STRUGURE)
     {
         harta[PacMan.line][PacMan.col]=0;
         SCOR++;

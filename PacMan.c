@@ -10,7 +10,7 @@
 
 #define SPEED 5
 #define MAX_DURATION 60
-
+#define RataAparitieStrugure 15
 struct PacManStr_definition PacMan;
 
 
@@ -73,6 +73,8 @@ int main(int argc, char **argv)
 
     //update:
     int power=0;
+    int tick_strugure=0;
+    struct loc unde_srtugure;
     printf("Jocul a inceput; il poti muta pe Pac Man folosind w a s d\n");
     while(PacMan.alive)
     {
@@ -80,16 +82,36 @@ int main(int argc, char **argv)
         printf("scorul este :: %d\n",SCOR);
         MAP_MERGE();
         print_map();
+
+
+
         printf("%d ;; %d \n ",PacMan.super, game_speed);
         if(PacMan.super == MAX_DURATION) PacMan.super-=sp;
+        
+        
         if(PacMan.super) PacMan.super-=game_speed;
         PACMAN_MOVE();
         power=PACMAN_CHECK(power);
         
         
-        
+        tick_strugure++;
+        int ok=2;
+        if(tick_strugure==RataAparitieStrugure){
+            for(int i=0;i<10;i++){
+                unde_srtugure = search(MAPCOL,MAPROW);
+                printf("%d ][][  %d \n", unde_srtugure.x, unde_srtugure.y);
+                
+                ok=place_strugure(unde_srtugure);
+                if(ok==1){ harta[unde_srtugure.x][unde_srtugure.y]=STRUGURE;break;}
+                
+            }
+            tick_strugure=0;
+        }
+
 
         //ghost
+
+
         if(power<0)
             power=0;
     }
