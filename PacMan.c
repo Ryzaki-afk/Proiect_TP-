@@ -9,6 +9,7 @@
 
 
 #define SPEED 5
+#define MAX_DURATION 60
 
 struct PacManStr_definition PacMan;
 
@@ -28,12 +29,13 @@ int main(int argc, char **argv)
     srand(time(NULL));
     if(argc>2)
     {
-        printf("prea multe arguments");
+        printf("prea multe argumente");
         exit(1);
     }
 
     FILE *f;
     int game_speed=SPEED;
+    int sp=0;
     f=fopen("map.txt", "r");
     if(f==NULL)
     {
@@ -41,7 +43,15 @@ int main(int argc, char **argv)
         exit(1);
     }
     for(int i=1;i<argc;i++){
-        if (i==1) game_speed=strtol(argv[1],argv,10);
+        if (i==1) {
+            game_speed=strtol(argv[1],argv,10);
+            if(game_speed >= 12) game_speed=11;
+            if(game_speed > 5 && game_speed <12){
+                sp=(game_speed - 5)*5;
+                game_speed=SPEED;
+            } 
+        }
+
     }
     
     
@@ -70,8 +80,8 @@ int main(int argc, char **argv)
         printf("scorul este :: %d\n",SCOR);
         MAP_MERGE();
         print_map();
-        //printf("%d ;; %d \n ",PacMan.super, game_speed);
-
+        printf("%d ;; %d \n ",PacMan.super, game_speed);
+        if(PacMan.super == MAX_DURATION) PacMan.super-=sp;
         if(PacMan.super) PacMan.super-=game_speed;
         PACMAN_MOVE();
         power=PACMAN_CHECK(power);
